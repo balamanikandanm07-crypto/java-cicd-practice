@@ -1,0 +1,26 @@
+name: Java CI Practice
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-java:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Check Java version
+        run: java --version
+
+      - name: Print message
+        run: echo "CI/CD is working!"
